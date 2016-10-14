@@ -13,4 +13,8 @@ public class CeziumUnit : MonoBehaviour {
 		ceziumAmount = (int)Random.Range (minCeziumAmount, maxCeziumAmount);
 	}
 
+	void OnDestroy()
+	{
+	}
+
 }

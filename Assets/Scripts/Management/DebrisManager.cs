@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class DebrisManager : MonoBehaviour {
+[System.Serializable]
+public class DebrisManager : System.Object {
 
     public GameObject Asteroid;
 
@@ -16,13 +17,13 @@ public class DebrisManager : MonoBehaviour {
     List<Vector3> asteroidPoints = new List<Vector3>();
 
 	// Use this for initialization
-	void Start () {
-        arenaData = arenaManager.GetComponent<ArenaWall>();
+	public void Start () {
+		arenaData = GameField.Instance.GetArenaWall();
         SelectPoints(arenaData.radius, distanceThreshold);
         foreach(Vector3 coordinate in asteroidPoints)
         {
-            GameObject newAsteroid = Instantiate(Asteroid, coordinate, Quaternion.identity) as GameObject;
-            newAsteroid.transform.parent = gameObject.transform;
+			GameObject.Instantiate(Asteroid, coordinate, Quaternion.identity);
+            //newAsteroid.transform.parent = gameObject.transform;
         }
 	}
 	

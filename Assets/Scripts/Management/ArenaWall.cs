@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ArenaWall : MonoBehaviour {
+[System.Serializable]
+public class ArenaWall : System.Object {
 
     public GameObject Buoy;
     List<GameObject> buoyList = new List<GameObject>();
@@ -12,7 +13,7 @@ public class ArenaWall : MonoBehaviour {
 
     const float TWOPI = Mathf.PI * 2;
 
-	void Start () {
+	public void Start () {
         float increment = TWOPI / buoyCount; //determine an increment distance based on the number of buoys
         float distanceAround = 0;
 	    for(int i = 1; i <= buoyCount; i++)
@@ -20,8 +21,8 @@ public class ArenaWall : MonoBehaviour {
             Vector3 placementPos = new Vector3(Mathf.Sin(distanceAround) * radius, 0, Mathf.Cos(distanceAround) * radius); //use Sine and Cosine to determine placement
             Quaternion direction = Quaternion.LookRotation(-placementPos); //the placementPos is negative so the buoys are facing towards the center, rather than away
 
-            GameObject newBuoy = Instantiate(Buoy, placementPos, direction) as GameObject;
-            newBuoy.transform.parent = this.gameObject.transform;
+			GameObject newBuoy = GameObject.Instantiate(Buoy, placementPos, direction) as GameObject;
+            //newBuoy.transform.parent = this.gameObject.transform;
             buoyList.Add(newBuoy);
             distanceAround += increment;
         }
@@ -42,5 +43,10 @@ public class ArenaWall : MonoBehaviour {
                 buoyList[buoy].GetComponent<BarrierBuoy>().ScaleBarrier(relativePos, distance);
             }
         }
+	}
+
+	public void InspectorGUI()
+	{
+		
 	}
 }

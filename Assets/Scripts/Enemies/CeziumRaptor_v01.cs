@@ -11,7 +11,7 @@ public class CeziumRaptor_v01 : Raptor {
 
 	// Use this for initialization
 	void Start () {
-		arenaManager = GameObject.FindGameObjectWithTag ("ArenaManager").GetComponent<ArenaWall>();
+		arenaManager = GameField.Instance.GetArenaWall ();// GameObject.FindGameObjectWithTag ("ArenaManager").GetComponent<ArenaWall>();
 		currentState = state.Wander;
 		InvokeRepeating ("AvoidObstacles", 0, 0.75f);
 		PickWaypoint ();

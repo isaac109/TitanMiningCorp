@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 public class ceZiumManager : MonoBehaviour {
 
+
+	public void SpawnCezium(Vector2 location)
+	{
+	}
+
 	//This script is used to manage all currently active CeZium Units. It contains only a list and the methods for modifying that list
 	public static int exposedCeziumUnits;
 	public static List<Transform> ceziumLocations = new List<Transform>();
