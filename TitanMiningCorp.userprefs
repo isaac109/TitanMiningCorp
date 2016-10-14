@@ -1,0 +1,21 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\ExitGate.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Player\PlayerStats.cs" Line="8" Column="31" />
+      <File FileName="Assets\Scripts\Weapons\RedLaserProjectile.cs" Line="8" Column="48" />
+      <File FileName="Assets\Scripts\Player\WeaponManager.cs" Line="10" Column="2" />
+      <File FileName="Assets\Scripts\Enemies\ceZiumManager.cs" Line="11" Column="15" />
+      <File FileName="Assets\Scripts\Player\UIController.cs" Line="24" Column="58" />
+      <File FileName="Assets\Scripts\Weapons\Weapon.cs" Line="8" Column="24" />
+      <File FileName="Assets\Scripts\Player\CeZiumCollection.cs" Line="22" Column="72" />
+      <File FileName="Assets\Scripts\Enemies\CeziumRaptor_v01.cs" Line="9" Column="1" />
+      <File FileName="Assets\Scripts\Enemies\Raptor.cs" Line="20" Column="36" />
+      <File FileName="Assets\Scripts\Player\ExitGate.cs" Line="21" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
