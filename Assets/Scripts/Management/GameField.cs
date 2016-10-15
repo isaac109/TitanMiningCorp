@@ -13,6 +13,9 @@ public class GameField : MonoBehaviour
 	private DebrisManager debrisManager;
 
 	[SerializeField]
+	private GeneratorManager generatorManager;
+
+	[SerializeField]
 	public List<Generator> generators;
 
 	public GameField ()
@@ -36,6 +39,20 @@ public class GameField : MonoBehaviour
 		return arenaWall;
 	}
 
+	public void OnGUILoad()
+	{
+		if (generatorManager == null) {
+			generatorManager = new GeneratorManager ();
+
+		}
+		generatorManager.OnGUILoad ();
+	}
+
+	public void InspectorGUI(GameFieldDatabase gameFieldDatabase)
+	{
+		
+		generatorManager.InspectorGUI (gameFieldDatabase);
+	}
 		
 }
 

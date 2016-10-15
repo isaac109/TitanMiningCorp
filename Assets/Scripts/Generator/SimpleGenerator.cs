@@ -4,8 +4,8 @@ using UnityEditor;
 using System;
 
 
-[Serializable]
 [GeneratorAttribute("Simple Generator")]
+[Serializable]
 public class SimpleGenerator : Generator
 {
 	[SerializeField]

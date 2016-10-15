@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-	public class Generator : ScriptableObject
+[Serializable]
+public class Generator : ScriptableObject
+{
+	public Generator ()
 	{
-	
-		public Generator ()
-		{
-		}
-		public virtual void Gen ()
-		{
-		}
-
-		public virtual void OnInspectorGUI()
-		{
-		}
 	}
+	public virtual void Gen ()
+	{
+	}
+
+	public virtual void OnInspectorGUI()
+	{
+	}
+}
 
 
