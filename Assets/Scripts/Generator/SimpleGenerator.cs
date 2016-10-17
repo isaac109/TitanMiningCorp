@@ -29,8 +29,8 @@ public class SimpleGenerator : Generator
 			bool hasFoundPosition = false;
 			while (!hasFoundPosition) //Here, we pick a new Vector3 and check if it is too close to any other location picked thus far. If it is too close, pick another one
 			{
-				Vector3 newCoordinate = new Vector3(UnityEngine.Random.Range(-GameField.Instance.GetArenaWall().radius, GameField.Instance.GetArenaWall().radius), 0, UnityEngine.Random.Range(-GameField.Instance.GetArenaWall().radius, GameField.Instance.GetArenaWall().radius));
-				if(Vector3.Distance(newCoordinate,Vector3.zero) >= GameField.Instance.GetArenaWall().radius - 3.5 || Vector3.Distance(newCoordinate, Vector3.zero) < 4.0)
+				Vector3 newCoordinate = new Vector3(UnityEngine.Random.Range(-GameField.Instance.ArenaWall.radius, GameField.Instance.ArenaWall.radius), 0, UnityEngine.Random.Range(-GameField.Instance.ArenaWall.radius, GameField.Instance.ArenaWall.radius));
+				if(Vector3.Distance(newCoordinate,Vector3.zero) >= GameField.Instance.ArenaWall.radius - 3.5 || Vector3.Distance(newCoordinate, Vector3.zero) < 4.0)
 				{
 					continue;
 				} 

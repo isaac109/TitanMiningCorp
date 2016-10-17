@@ -5,8 +5,28 @@ using UnityEditor;
 using System.Reflection;
 using System.Linq;
 [Serializable]
-public class GeneratorManager : System.Object
+public class GeneratorManager : System.Object, IManager
 {
+
+	[SerializeField]
+	private List<Generator> activeGenerator;
+
+	public GeneratorManager ()
+	{
+		if (activeGenerator != null)
+			activeGenerator = new List<Generator> ();
+	}
+
+	public void Awake ()
+	{
+	}
+
+	public void Start ()
+	{
+	}
+
+	#if UNITY_EDITOR
+
 	[NonSerialized]
 	int selected = 0;
 	[NonSerialized]
@@ -14,18 +34,7 @@ public class GeneratorManager : System.Object
 	[NonSerialized]
 	List<Type> generators = new List<Type>();
 
-
-	[SerializeField]
-	private List<Generator> activeGenerator;
-
-	public GeneratorManager ()
-	{
-		if (generators != null)
-			activeGenerator = new List<Generator> ();
-	}
-
-
-	public void OnGUILoad()
+	public void InspectorGUILoad ()
 	{
 		generators.Clear ();
 
@@ -45,7 +54,7 @@ public class GeneratorManager : System.Object
 		}
 		this.options = options.ToArray ();
 	}
-
+		
 	public void InspectorGUI(GameFieldDatabase gameFieldDatabase)
 	{
 		GUILayout.BeginHorizontal ();
@@ -75,5 +84,8 @@ public class GeneratorManager : System.Object
 
 
 	}
+	#endif
+
+
 }
 

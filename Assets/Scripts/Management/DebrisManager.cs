@@ -18,7 +18,7 @@ public class DebrisManager : System.Object {
 
 	// Use this for initialization
 	public void Start () {
-		arenaData = GameField.Instance.GetArenaWall();
+		arenaData = GameField.Instance.ArenaWall;
         SelectPoints(arenaData.radius, distanceThreshold);
         foreach(Vector3 coordinate in asteroidPoints)
         {

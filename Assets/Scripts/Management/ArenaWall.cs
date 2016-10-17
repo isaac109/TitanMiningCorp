@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using System;
 
 [System.Serializable]
-public class ArenaWall : System.Object {
-
-    public GameObject Buoy;
+public class ArenaWall : System.Object , IManager{
+	[NonSerialized]
     List<GameObject> buoyList = new List<GameObject>();
 
+	[SerializeField]
+	public GameObject Buoy;
+
+	[SerializeField]
     public int buoyCount = 1;
-    public float radius;
+	[SerializeField]
+	public float radius;
 
     const float TWOPI = Mathf.PI * 2;
 
@@ -45,8 +51,34 @@ public class ArenaWall : System.Object {
         }
 	}
 
-	public void InspectorGUI()
+	public void Awake ()
 	{
-		
 	}
+
+
+	#if UNITY_EDITOR
+	public void InspectorGUI (GameFieldDatabase gameFieldDatabase)
+	{
+		GUILayout.BeginHorizontal ();
+		GUILayout.Label ("Buoy:");
+		Buoy = (GameObject)EditorGUILayout.ObjectField (Buoy,typeof(GameObject),true);
+		GUILayout.EndHorizontal ();
+
+		GUILayout.BeginHorizontal ();
+		GUILayout.Label ("Buoy Count:");
+		buoyCount = EditorGUILayout.IntField (buoyCount);
+		GUILayout.EndHorizontal ();
+
+		GUILayout.BeginHorizontal ();
+		GUILayout.Label ("radius:");
+		radius = EditorGUILayout.FloatField (radius);
+		GUILayout.EndHorizontal ();
+	}
+
+	public void InspectorGUILoad ()
+	{
+	}
+	#endif
+
+
 }
