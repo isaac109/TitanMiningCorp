@@ -63,6 +63,8 @@ public class GameFieldWrapper : Editor
 		}
 		EditorGUILayout.EndFadeGroup();
 		//base.OnInspectorGUI();
+
+
 	}
 	#endif
 

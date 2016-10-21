@@ -12,23 +12,20 @@ public class GameField : MonoBehaviour
 	[SerializeField]
 	private ArenaWall arenaWall;
 	[SerializeField]
-	private DebrisManager debrisManager;
-	[SerializeField]
 	private GeneratorManager generatorManager;
-	[SerializeField]
-	public List<Generator> generators;
 
 	void Start()
 	{
 		//TODO: setup up event for event
-		OnGameFieldReady.Invoke (this, new EventArgs ());
+//		OnGameFieldReady.Invoke (this, new EventArgs ());
+		generatorManager.Start ();
 	}
 
 	void Awake()
 	{
 		GameField.Instance = this;
 		arenaWall.Start ();
-		debrisManager.Start ();
+		generatorManager.Awake ();
 	}
 
 	public ArenaWall ArenaWall{ 
@@ -39,13 +36,6 @@ public class GameField : MonoBehaviour
 		} 
 	}
 
-	public DebrisManager DebrisManager{ 
-		get { 
-			if (debrisManager == null)
-				debrisManager = new DebrisManager ();
-			return debrisManager; 
-		} 
-	}
 
 	public GeneratorManager GeneratorManager{ 
 		get { 

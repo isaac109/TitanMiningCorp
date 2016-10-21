@@ -23,6 +23,10 @@ public class GeneratorManager : System.Object, IManager
 
 	public void Start ()
 	{
+		for (int x = 0; x < activeGenerator.Count; x++) {
+			activeGenerator [x].Gen ();
+		}
+
 	}
 
 	#if UNITY_EDITOR
@@ -62,7 +66,6 @@ public class GeneratorManager : System.Object, IManager
 		if (GUILayout.Button ("Add") && selected != -1) {
 			if (activeGenerator == null)
 				activeGenerator = new List<Generator> ();
-			
 			Generator generator = (Generator)ScriptableObject.CreateInstance(generators [selected]);
 			gameFieldDatabase.RegisterBehavior (generator);
 
