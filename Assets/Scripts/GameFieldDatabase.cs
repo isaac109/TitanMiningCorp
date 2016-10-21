@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 [Serializable]
 public class GameFieldDatabase : ScriptableObject {
@@ -9,10 +10,9 @@ public class GameFieldDatabase : ScriptableObject {
 	{
 		AssetDatabase.AddObjectToAsset (scriptableObject, this);
 		EditorUtility.SetDirty(scriptableObject);
-		EditorUtility.SetDirty (this);
 		EditorApplication.SaveAssets();
 		AssetDatabase.SaveAssets ();
-		EditorApplication.MarkSceneDirty ();
+		EditorSceneManager.MarkSceneDirty (EditorSceneManager.GetActiveScene());
 	}
 
 	public void UnRegisterAsset(ScriptableObject scriptableObject)
@@ -20,7 +20,7 @@ public class GameFieldDatabase : ScriptableObject {
 		UnityEngine.Object.DestroyImmediate (scriptableObject, true);
 		EditorApplication.SaveAssets();
 		AssetDatabase.SaveAssets ();
-		EditorApplication.MarkSceneDirty ();
+		EditorSceneManager.MarkSceneDirty (EditorSceneManager.GetActiveScene());
 
 	}
 
