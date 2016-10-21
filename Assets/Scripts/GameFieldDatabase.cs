@@ -12,15 +12,17 @@ public class GameFieldDatabase : ScriptableObject {
 		EditorUtility.SetDirty(scriptableObject);
 		EditorApplication.SaveAssets();
 		AssetDatabase.SaveAssets ();
-		EditorSceneManager.MarkSceneDirty (EditorSceneManager.GetActiveScene());
+		if(!EditorSceneManager.GetActiveScene().isDirty)
+			EditorSceneManager.MarkSceneDirty (EditorSceneManager.GetActiveScene());
 	}
 
 	public void UnRegisterAsset(ScriptableObject scriptableObject)
 	{
 		UnityEngine.Object.DestroyImmediate (scriptableObject, true);
-		EditorApplication.SaveAssets();
+		//EditorApplication.SaveAssets();
 		AssetDatabase.SaveAssets ();
-		EditorSceneManager.MarkSceneDirty (EditorSceneManager.GetActiveScene());
+		if(!EditorSceneManager.GetActiveScene().isDirty)
+			EditorSceneManager.MarkSceneDirty (EditorSceneManager.GetActiveScene());
 
 	}
 

@@ -33,12 +33,7 @@ public class GameFieldWrapper : Editor
 		showGenerators = new AnimBool(true);
 		showGenerators.valueChanged.AddListener(Repaint);
 	}
-
-
-	public override void ReloadPreviewInstances ()
-	{
-		base.ReloadPreviewInstances ();
-	}
+		
 
 	#if UNITY_EDITOR
 	public override void OnInspectorGUI()
